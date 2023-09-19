@@ -61,13 +61,13 @@ document.querySelector('#booking-form').addEventListener('submit', async (e) => 
     "date": e.target[4].value
   }
 
-  let response = await fetch('http://127.0.0.1:3000/reservation', { // Adjusted the URL here
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(formdata)
-  });
+  // let response = await fetch('http://127.0.0.1:3000/reservation', { // Adjusted the URL here
+  //   method: 'POST',
+  //   headers: {
+  //     'Content-Type': 'application/json'
+  //   },
+  //   body: JSON.stringify(formdata)
+  // });
 
   let response2 = await fetch('https://chetantiwari195.github.io/Internship_project/', { // Adjusted the URL here
     method: 'POST',
@@ -77,7 +77,7 @@ document.querySelector('#booking-form').addEventListener('submit', async (e) => 
     body: JSON.stringify(formdata)
   });
 
-  if (response.ok || response2.ok) {
+  if (response2.ok) {
     alert('Booking confirmed!');
   } else {
     alert('Error in booking. Please try again.');
