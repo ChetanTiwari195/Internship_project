@@ -1,8 +1,8 @@
 // to get current year
 function getYear() {
-    var currentDate = new Date();
-    var currentYear = currentDate.getFullYear();
-    document.querySelector("#displayYear").innerHTML = currentYear;
+  var currentDate = new Date();
+  var currentYear = currentDate.getFullYear();
+  document.querySelector("#displayYear").innerHTML = currentYear;
 }
 
 getYear();
@@ -10,46 +10,46 @@ getYear();
 
 // isotope js
 $(window).on('load', function () {
-    $('.filters_menu li').click(function () {
-        $('.filters_menu li').removeClass('active');
-        $(this).addClass('active');
+  $('.filters_menu li').click(function () {
+    $('.filters_menu li').removeClass('active');
+    $(this).addClass('active');
 
-        var data = $(this).attr('data-filter');
-        $grid.isotope({
-            filter: data
-        })
-    });
-
-    var $grid = $(".grid").isotope({
-        itemSelector: ".all",
-        percentPosition: false,
-        masonry: {
-            columnWidth: ".all"
-        }
+    var data = $(this).attr('data-filter');
+    $grid.isotope({
+      filter: data
     })
+  });
+
+  var $grid = $(".grid").isotope({
+    itemSelector: ".all",
+    percentPosition: false,
+    masonry: {
+      columnWidth: ".all"
+    }
+  })
 });
 
 // nice select
-$(document).ready(function() {
-    $('select').niceSelect();
-  });
+$(document).ready(function () {
+  $('select').niceSelect();
+});
 
 /** google_map js **/
 function myMap() {
-    const myLatLng = { lat: 13.04250010168604, lng: 77.62243588807002 };
-    const map = new google.maps.Map(document.getElementById("googleMap"), {
-      zoom: 14,
-      center: myLatLng,
-    });
-  
-    new google.maps.Marker({
-      position: myLatLng,
-      map,
-      title: "Hello World!",
-    });
-  }
+  const myLatLng = { lat: 13.04250010168604, lng: 77.62243588807002 };
+  const map = new google.maps.Map(document.getElementById("googleMap"), {
+    zoom: 14,
+    center: myLatLng,
+  });
 
-  //booking form
+  new google.maps.Marker({
+    position: myLatLng,
+    map,
+    title: "Hello World!",
+  });
+}
+
+//booking form
 document.querySelector('#booking-form').addEventListener('submit', async (e) => {
   e.preventDefault();
 
@@ -61,7 +61,7 @@ document.querySelector('#booking-form').addEventListener('submit', async (e) => 
     "date": e.target[4].value
   }
 
-  let response = await fetch('http://127.0.0.1:3000/reservation',{ // Adjusted the URL here
+  let response = await fetch('http://127.0.0.1:3000/reservation', { // Adjusted the URL here
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -69,7 +69,14 @@ document.querySelector('#booking-form').addEventListener('submit', async (e) => 
     body: JSON.stringify(formdata)
   });
 
-    
+  let response2 = await fetch('https://chetantiwari195.github.io/Internship_project/', { // Adjusted the URL here
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(formdata)
+  });
+
   if (response.ok || response2.ok) {
     alert('Booking confirmed!');
   } else {
@@ -79,26 +86,26 @@ document.querySelector('#booking-form').addEventListener('submit', async (e) => 
 
 // client section owl carousel
 $(".client_owl-carousel").owlCarousel({
-    loop: true,
-    margin: 0,
-    dots: false,
-    nav: true,
-    navText: [],
-    autoplay: true,
-    autoplayHoverPause: true,
-    navText: [
-        '<i class="fa fa-angle-left" aria-hidden="true"></i>',
-        '<i class="fa fa-angle-right" aria-hidden="true"></i>'
-    ],
-    responsive: {
-        0: {
-            items: 1
-        },
-        768: {
-            items: 2
-        },
-        1000: {
-            items: 2
-        }
+  loop: true,
+  margin: 0,
+  dots: false,
+  nav: true,
+  navText: [],
+  autoplay: true,
+  autoplayHoverPause: true,
+  navText: [
+    '<i class="fa fa-angle-left" aria-hidden="true"></i>',
+    '<i class="fa fa-angle-right" aria-hidden="true"></i>'
+  ],
+  responsive: {
+    0: {
+      items: 1
+    },
+    768: {
+      items: 2
+    },
+    1000: {
+      items: 2
     }
+  }
 });
