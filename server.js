@@ -42,7 +42,7 @@ const Reservation = mongoose.model("Reservation", reservationSchema);
 // set up Sendinblue
 var defaultClient = SibApiV3Sdk.ApiClient.instance;
 var apiKey = defaultClient.authentications['api-key'];
-apiKey.apiKey = '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';
+apiKey.apiKey = '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';
 
 var apiInstance = new SibApiV3Sdk.TransactionalEmailsApi(); // Change made here
 
